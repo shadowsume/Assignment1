@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Zuleyka Meteku| Web Designer zuleyka</title>
+  <!-- Google Fonts + Font Awesome 6 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5eef3;
+      color: hsl(0, 89%, 50%);
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #eef2ff;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #680303;
+      border-radius: 20px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* header + navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(104, 3, 3, 0.2);
+      padding: 0.9rem 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.65rem;
+      background: linear-gradient(135deg, #cf0833, #991d1d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #520808;
+      transition: all 0.25s ease;
+      padding: 0.4rem 0;
+      position: relative;
+    }
+
+    /* dashboard hover effect (as requested) */
+    .nav-links a:hover {
+      color: #fa0707;
+      transform: translateY(-3px);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2.5px;
+      background: #ec0707;
+      border-radius: 4px;
+      transition: width 0.28s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* sections */
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid #eef2ff;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: #ee052c;
+      border-radius: 8px;
+    }
+
+    /* home */
+    .home-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .home-content {
+      flex: 1;
+    }
+
+    .badge {
+      background: #ede9fe;
+      color: #ee0914;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .home-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      background: linear-gradient(to right, #000000, #ca0647);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.8rem;
+    }
+
+    .highlight {
+      color: #a80a0a;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+    }
+
+    .home-content p {
+      font-size: 1.2rem;
+      color: #d4151f;
+      margin-top: 0.5rem;
+    }
+
+    .home-avatar {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+    }
+
+    .image-card {
+      background: linear-gradient(145deg, #ffffff, #f8fafc);
+      border-radius: 40% 60% 70% 30% / 40% 45% 55% 60%;
+      padding: 0.9rem;
+      box-shadow: 0 25px 35px -12px rgba(97, 5, 5, 0.15);
+      transition: transform 0.35s ease;
+      text-align: center;
+    }
+
+    .image-card:hover {
+      transform: scale(1.02);
+    }
+
+    .image-card img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 40% 60% 70% 30% / 40% 45% 55% 60%;
+      background: #e2e8f0;
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+
+    /* upload button style */
+    .upload-btn {
+      background: #c00505;
+      color: white;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      font-family: inherit;
+    }
+
+    .upload-btn:hover {
+      background: #b62222;
+      transform: scale(0.96);
+    }
+
+    /* about wrapper */
+    .about-wrapper {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .about-text {
+      flex: 2;
+    }
+
+    .about-text p {
+      margin-bottom: 1.1rem;
+      font-size: 1.03rem;
+      color: #01040a;
+    }
+
+    .about-img {
+      flex: 1;
+      text-align: center;
+    }
+
+    .about-img img {
+      width: 210px;
+      height: 210px;
+      border-radius: 38px;
+      object-fit: cover;
+      box-shadow: 0 20px 30px -8px rgba(131, 3, 3, 0.1);
+      border: 4px solid white;
+      transition: all 0.3s;
+    }
+
+    .about-img img:hover {
+      transform: rotate(1.5deg) scale(1.02);
+    }
+
+    /* services grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 28px;
+      padding: 2rem 1.5rem;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 12px 22px -12px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f1f5f9;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 35px -12px rgba(235, 40, 40, 0.2);
+      border-color: #ddd6fe;
+    }
+
+    .service-icon {
+      font-size: 2.4rem;
+      color: #b82121;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .service-card p {
+      color: #694747;
+    }
+
+    /* skills flex */
+    .skills-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .skill-item {
+      background: white;
+      flex: 1 1 180px;
+      padding: 1.5rem 1rem;
+      border-radius: 28px;
+      text-align: center;
+      transition: 0.2s;
+      border: 1px solid #eef2ff;
+    }
+
+    .skill-item i {
+      font-size: 2rem;
+      color: #ed3a3a;
+      margin-bottom: 0.8rem;
+    }
+
+    .skill-item h4 {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-item p {
+      font-size: 0.85rem;
+      color: #694747;
+    }
+
+    .skill-item:hover {
+      background: #f5f3ff;
+      transform: scale(1.02);
+    }
+
+    /* contact row */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+
+    .contact-form {
+      flex: 1.5;
+      background: white;
+      padding: 2rem;
+      border-radius: 36px;
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.04);
+    }
+
+    .form-group {
+      margin-bottom: 1.3rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 40px;
+      font-family: inherit;
+      transition: 0.2s;
+      background: #ffffff;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #bd0909;
+      box-shadow: 0 0 0 3px rgba(97, 5, 5, 0.2);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+      border-radius: 28px;
+    }
+
+    .btn-submit {
+      background: #ed3a3a;
+      color: white;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-submit:hover {
+      background: #b62121;
+      transform: scale(0.97);
+    }
+
+    .contact-info {
+      flex: 1;
+      background: #fefcff;
+      padding: 2rem;
+      border-radius: 36px;
+      border: 1px solid #ede9fe;
+    }
+
+    .contact-info p {
+      margin: 1.2rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 1rem;
+    }
+
+    .contact-info i {
+      width: 32px;
+      color: #ed3a61;
+      font-size: 1.2rem;
+    }
+
+    .support-message {
+      background: #eef2ff;
+      padding: 1rem;
+      border-radius: 32px;
+      margin: 1.5rem 0;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #8b6464;
+    }
+
+    /* fade animation */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-up.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .home-content h1 {
+        font-size: 2.4rem;
+      }
+
+      .nav-links {
+        gap: 1.2rem;
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">✦ Zuleyka.dev</div>
+      <div class="nav-links">
+        <a href="#home"><i class="fas fa-home"></i> Home</a>
+        <a href="#about"><i class="fas fa-user"></i> About</a>
+        <a href="#services"><i class="fas fa-cogs"></i> Services</a>
+        <a href="#skills"><i class="fas fa-code"></i> Skills</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HOME SECTION -->
+  <section id="home">
+    <div class="container home-grid fade-up">
+      <div class="home-content">
+        <div class="badge"><i class="fas fa-laptop-code"></i> web design student</div>
+        <h1>HELLO, I AM <span class="highlight">ZULEYKA METEKU</span></h1>
+        <p><strong>I am grade 11 student web designer</strong> — crafting digital experiences that blend creativity with functionality.</p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#contact" style="background:#ed3a3a; color:white; padding:0.8rem 1.8rem; border-radius:40px; text-decoration:none; font-weight:600;">✨ Start a project</a>
+          <a href="#services" style="border:1px solid #cbd5e1; padding:0.8rem 1.8rem; border-radius:40px; text-decoration:none; font-weight:500; color:#8b1010;">↓ My services</a>
+        </div>
+      </div>
+      <div class="home-avatar">
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION + IMAGE PICKER -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-wrapper fade-up">
+        <div class="about-text">
+          <p><strong>MY NAME IS ZULEYKA METIKU</strong> — I am a Grade 11 Student, currently a grade 11 student with a passion for web design. I enjoy exploringthe world of technology and cretivity,and i am excited to develop my skills further as i pursue my interest in creating engaging and user user-friendly website</p>
+          <p>✨ <strong>Web Designer:</strong> Passionate about creating visually appealing and user-friendly digital experiences.</p>
+          <p>🧩 <strong>Creative Problem Solver:</strong> Views every website as a puzzle, using design to turn complex problems into beautiful, functional solutions.</p>
+          <p>🚀 <strong>Future-Focused:</strong> Eagerly learning the building blocks of the web, including HTML5, CSS3, and the principles of responsive design.</p>
+        </div>
+        <div class="about-img">
+            <img src="zuu.jpg"
+             width="300px" height="200px">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">My Services</h2>
+      <div class="services-grid fade-up">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-paintbrush"></i></div>
+          <h3>Custom Website Design</h3>
+          <p>Creating unique, one-of-a-kind layouts tailored specifically to a brand's identity rather than using generic templates.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-layer-group"></i></div>
+          <h3>UI/UX Design</h3>
+          <p>Focusing on both the User Interface (visual look) and the User Experience (how easy and logical the site is to navigate).</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>Responsive Web Design</h3>
+          <p>Ensuring websites function perfectly and look great across all devices, including desktops, tablets, and smartphones.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Landing Page Design</h3>
+          <p>Creating high-conversion single pages specifically designed for marketing campaigns or advertisements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <div class="skills-flex fade-up">
+        <div class="skill-item"><i class="fas fa-palette"></i><h4>Visual Design</h4><p>Color theory, typography, layout balance for pro sites.</p></div>
+        <div class="skill-item"><i class="fas fa-tablet-alt"></i><h4>Responsive Design</h4><p>Seamless across devices — 2026 standard.</p></div>
+        <div class="skill-item"><i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i><h4>HTML & CSS</h4><p>Building blocks to customize beyond templates.</p></div>
+        <div class="skill-item"><i class="fas fa-universal-access"></i><h4>Web Accessibility</h4><p>Designing for everyone, including disabilities.</p></div>
+        <div class="skill-item"><i class="fas fa-chart-simple"></i><h4>SEO Foundations</h4><p>Page speed & structure to boost rankings.</p></div>
+      </div>
+    </div>
+        <section style="text-align:center;">
+    <p style="text-align:center;color:black;">I designed websites by using HTML,CSS and JAVASCRIPT</p>
+                  <div><div><p>HTML</p><P>70%</P></div>
+                <progress max="100" value="60"></progress>
+            </div>
+            <div><div><p>CSS</p><P>35%</P></div>
+                <progress max="100" value="35"></progress></div>
+            <div><div><p>JAVASCRIPT</p><P>10%</P></div>
+                <progress max="100" value="10"></progress></div>
+            <div><div><p>PHP</p><P>0%</P></div>
+                <progress max="100" value="0"></progress></div>
+
+        </div>
+    </section>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Let’s Connect</h2>
+      <div class="contact-row fade-up">
+        <div class="contact-form">
+          <form id="portfolioContactForm">
+            <div class="form-group">
+              <input type="text" id="name" placeholder="Your name -----" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" placeholder="Your email address -------" required>
+            </div>
+            <div class="form-group">
+              <input type="text" id="project" placeholder="Your project --------">
+            </div>
+            <div class="form-group">
+              <textarea id="message" placeholder="Message ________" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn-submit"><i class="far fa-paper-plane"></i> Send message</button>
+          </form>
+          <div id="formFeedback" style="margin-top: 1rem; font-size: 0.85rem;"></div>
+        </div>
+        <div class="contact-info">
+          <div class="support-message">
+            📢 Please contact and support me, just send your project and let me hear you!
+          </div>
+          <p><i class="fas fa-map-marker-alt"></i> 🧭 addressAddis Abebe, Ethiopia</p>
+          <p><i class="fas fa-phone-alt"></i> 📱 +251956**46**</p>
+          <p><i class="fas fa-envelope"></i> 📧 Zuleykameteku@gmail.com</p>
+          <div style="margin-top: 2rem; background: #f1eaff; border-radius: 50px; padding: 0.8rem; text-align:center;">
+            <i class="fab fa-instagram"></i> <i class="fab fa-twitter"></i> <i class="fab fa-linkedin-in"></i> <span style="margin-left: 6px;">@Zuleyka.design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Zuleyka Meteku — Grade 11 Web Designer. All visions crafted with ❤️ & responsive code.</p>
+</footer>
+
+<script>
+  // INTERSECTION OBSERVER for fade-up animation
+  const fadeElements = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('appear');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+  fadeElements.forEach(el => observer.observe(el));
+
+  // ----- IMAGE GALLERY PICKER (HOME + ABOUT) -----
+  // Home avatar upload
+  const homeUpload = document.getElementById('homeUpload');
+  const homeAvatarImg = document.getElementById('homeAvatarImg');
+  if (homeUpload) {
+    homeUpload.addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          homeAvatarImg.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        alert("Please select a valid image file.");
+      }
+    });
+  }
+
+  // About image upload
+  const aboutUpload = document.getElementById('aboutUpload');
+  const aboutImg = document.getElementById('aboutImg');
+  if (aboutUpload) {
+    aboutUpload.addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          aboutImg.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        alert("Please select a valid image from gallery.");
+      }
+    });
+  }
+
+  // CONTACT FORM HANDLER (simulate sending)
+  const contactForm = document.getElementById('portfolioContactForm');
+  const feedbackDiv = document.getElementById('formFeedback');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const project = document.getElementById('project').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email) {
+        feedbackDiv.innerHTML = '<span style="color:#b91c1c;"><i class="fas fa-exclamation-triangle"></i> Please fill your name and email address.</span>';
+        setTimeout(() => { feedbackDiv.innerHTML = ''; }, 3000);
+        return;
+      }
+      if (!email.includes('@') || !email.includes('.')) {
+        feedbackDiv.innerHTML = '<span style="color:#b91c1c;">⚠️ Enter a valid email address.</span>';
+        setTimeout(() => { feedbackDiv.innerHTML = ''; }, 3000);
+        return;
+      }
+      feedbackDiv.innerHTML = '<span style="color:#15803d;"><i class="fas fa-check-circle"></i> Thank you, ' + name + '! Your project has been shared. I’ll reply soon.</span>';
+      contactForm.reset();
+      setTimeout(() => { feedbackDiv.innerHTML = ''; }, 4000);
+    });
+  }
+
+  // SMOOTH SCROLL for navbar + hover effect already in CSS
+  const navItems = document.querySelectorAll('.nav-links a');
+  navItems.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      // subtle active indicator
+      navItems.forEach(l => l.style.fontWeight = '500');
+      this.style.fontWeight = '700';
+    });
+  });
+</script>
+</body>
+</html>
